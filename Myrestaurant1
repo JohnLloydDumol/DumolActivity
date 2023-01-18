@@ -1,0 +1,155 @@
+package restaurant1;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Restaurant1 extends JFrame{
+    
+    JLabel Customer,Name,Contact,Food,Drinks,Type;
+    JTextField tNumber,tName,tContact;
+    JComboBox c1,c2;
+    JRadioButton b1,b2;
+    JButton reset,print,receipt;
+    JTextArea area1;
+   
+    Restaurant1()
+    {
+        
+        Customer = new JLabel("Customer No:");
+        Customer.setBounds(20, 50, 120, 30);
+        
+        Name = new JLabel("Name:");
+        Name.setBounds(20,100,120,30);
+        
+        Contact = new JLabel("Contact");
+        Contact.setBounds(20,150,120,30);
+        
+        Food = new JLabel("Food:");
+        Food.setBounds(20,200,120,30);
+        
+        Drinks = new JLabel("Drinks:");
+        Drinks.setBounds(20,250,120,30);
+        
+        
+        Type = new JLabel("Type:");
+        Type.setBounds(20,300,120,30);
+        
+        //TextFields
+        tNumber = new JTextField();
+        tNumber.setBounds(150, 50, 200, 30);
+        
+        tName = new JTextField();
+        tName.setBounds(150, 150, 200, 30);
+        
+        tContact = new JTextField();
+        tContact.setBounds(150, 100, 200, 30);
+        
+         //Radio Button
+        b1 = new JRadioButton("Diet");
+        b2 = new JRadioButton("Normal");
+        b1.setBounds(200, 300, 120, 30);
+        b2.setBounds(300, 300, 120, 30);
+        
+        //ComboBox
+        String Foo[]={"Pizza","Spaghetti","Burger"};
+        c1 = new JComboBox(Foo);
+        c1.setBounds(200, 200, 120, 30);
+        
+        String Drin[]={"Lemon Juice","Coke","Water","Milktea"};
+        c2 = new JComboBox(Drin);
+        c2.setBounds(200, 250, 120, 30); 
+    
+
+            //Buttons
+        reset = new JButton("Reset");
+        reset.setBounds(400, 100, 80, 40);
+        
+        print = new JButton("Print");
+        print.setBounds(490, 100, 80, 40);
+        
+        receipt = new JButton("Receipt");
+        receipt.setBounds(580, 100, 80, 40);
+        
+         //TextArea
+        area1 = new JTextArea();
+        area1.setBounds(400, 160, 80,40);
+        area1.setSize(260,260);
+        
+            
+        getContentPane().add(reset);       
+        getContentPane().add(print);        
+        getContentPane().add(receipt);
+        getContentPane().add(area1);  
+        getContentPane().add(Customer);
+        getContentPane().add(Name);
+        getContentPane().add(Contact);
+        getContentPane().add(Food);
+        getContentPane().add(Drinks);
+        getContentPane().add(Type);
+        getContentPane().add(tName);
+        getContentPane().add(tContact);
+        getContentPane().add(tNumber);
+        
+        getContentPane().add(b1);
+        getContentPane().add(b2);
+        
+        getContentPane().add(c1);
+        getContentPane().add(c2);
+        
+        setSize(1000,1000);
+        setLayout(null);
+        
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        reset.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e )
+            {
+                tName.setText("");
+                
+                tContact.setText("");
+                
+                tNumber.setText("");
+                 
+            }
+        });
+         print.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e )
+            {
+                try{
+                area1.print();
+                }
+                catch(PrinterException ex)
+                {
+                    System.out.println(ex.getMessage());
+                }}
+        });
+          print.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e )
+            {
+                try{
+                area1.print();
+                }
+                catch(PrinterException ex)
+                {
+                    System.out.println(ex.getMessage());
+                }}
+        });
+    public static void main(String[] args)
+    {
+        new Restaurant1();
+    }
+}
