@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 public class Login extends JFrame{
 
-    JFrame bWindow = new JFrame("Hospital Information System");
+    JFrame bWindow = new JFrame("Restaurant");
     JPanel bPanel =  new JPanel();
     
     JLabel lblFirstName, lblMiddleName, lblLastName;
@@ -93,5 +93,3 @@ public class Login extends JFrame{
                 bWindow.setVisible(true); 
                 loginFrame.dispose();
             }
-       
-       
